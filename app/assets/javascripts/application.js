@@ -12,4 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery3
 //= require_tree .
+//= require popper
+//= require bootstrap-sprockets
+//= require colorbox-rails

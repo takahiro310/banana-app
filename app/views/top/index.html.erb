@@ -1,0 +1,25 @@
+<div class="container">
+    <div id="request_create_image" >
+    <%= form_tag(create_image_path, method: :post, remote: true) { %>
+        <div class="row">
+        <div class="col-xl">
+            <%= text_field :question, :text, :class => "form-control-lg", :placeholder => "バナナ" %>
+        </div>
+        <div class="col-xl">
+            といったら
+        </div>
+        <div class="col-xl">
+            <%= text_field :answer, :text, :class => "form-control-lg", :placeholder => "黄色" %>
+        </div>
+        <div class="col-xl button">
+            <%= submit_tag 'けってい！', :id => "form_submit", :class => "btn btn-primary btn-lg" %>
+         </div>
+        <div id="created_image" class="col-xl">
+            <p>▼こんな画像が作られます▼</p>
+            <p><img src="/image/sample.jpg" alt="RENSOW サンプルイメージ" class="img-fluid" /></p>
+            <span class="btn btn-primary btn-lg disabled"><i class="fa-twitter fa">つぶやく</i></span>
+        </div>
+    </div>
+    <% } %>
+    </div><!-- //request_create_image -->
+</div>

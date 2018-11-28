@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BananaApp</title>
+    <title>RENSOW -連想ゲーム-</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+    <%= render 'layouts/header' %>
+    <div data-is="main">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    <div id="cboxOverlay"></div>
+    <div class="loading"><img src="/image/loading.gif" width="48" height="48" alt="Loading" /></div>
+    </body>
 </html>
