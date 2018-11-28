@@ -4,7 +4,7 @@
 $ ->
   $("#cboxOverlay").fadeOut 100
 
-  $('#request_create_image')
+  $('#asfor-contents')
     .on 'ajax:complete', (event) ->
       response = event.detail[0].response
       $('#created_image').html(response)

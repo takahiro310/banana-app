@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'answer/index'
+  root 'top#index'
+  
   get 'top/index'
+  get 'top/show/:url_key' => 'top#show'
 
   root  to: 'create_image#index'
   post 'create_image/exec', to: 'create_image#exec',  as: 'create_image'

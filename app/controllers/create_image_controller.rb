@@ -2,13 +2,13 @@ class CreateImageController < ApplicationController
 
     def exec
 
-        question_text = params[:question][:text]
-        answer_text = params[:answer][:text]
+        question_text = params[:asfor][:question]
+        answer_text = params[:asfor][:answer]
 
         @asfor = nil
         if Asfor.exists?(question: question_text, answer: answer_text)
             logger.debug("EXISTS")
-            @asfor = Asfor.where(question: question_text).where(answer: answer_text).first
+            @asfor = Asfor.find_by(question: question_text, answer: answer_text)
         else
             logger.debug("NOT EXISTS")
 
