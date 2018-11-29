@@ -49,8 +49,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ### Add gems 
-gem 'rspec-rails', '~> 3.8'
-gem "rails-controller-testing"
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+  gem "rails-controller-testing"
+end
 
 gem 'bootstrap'
 gem 'jquery-rails'

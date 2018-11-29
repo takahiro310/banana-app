@@ -48,7 +48,9 @@ class CreateImageController < ApplicationController
             end
             
             image_file = SecureRandom.urlsafe_base64(8)
-            new_img.write("#{Rails.root}/public/image/asfors/#{image_file}.png")
+            directory = ("a".."z").to_a.sample(2).join
+            FileUtils.mkdir_p("#{Rails.root}/public/image/asfors/#{directory}", :mode => 755)
+            new_img.write("#{Rails.root}/public/image/asfors/#{directory}/#{image_file}.png")
             new_img.destroy!
 
             # DBレコード生成だ！
@@ -56,7 +58,13 @@ class CreateImageController < ApplicationController
             @asfor.question = question_text
             @asfor.answer = answer_text
             @asfor.url_key = image_file
-            @asfor.image = "/image/asfors/" + image_file + ".png"
+
+            @asfor.image = "/image/asfors/"
+            @asfor.image << directory
+            @asfor.image << "/"
+            @asfor.image << image_file
+            @asfor.image << ".png"
+            
             unless @asfor.save
                 # なんで書き込めなかったん・・・
                 render partial: 'ajax_error_partial'

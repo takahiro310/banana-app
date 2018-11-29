@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: banana-app_production
-  username: banana-app
-  password: <%= ENV['BANANA-APP_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
+  host:     <%= ENV['DB_HOST'] %>
+  port:     3306
+
