@@ -7,7 +7,7 @@ class CreateImageController < ApplicationController
 
         if question_text.blank? || question_text.size > 12 ||
             answer_text.blank? || answer_text.size > 12
-            # 入力データ異常デス
+            # 兄さん、入力データ異常ですよ！
             render partial: 'ajax_error_partial'
             return
         end
@@ -18,7 +18,7 @@ class CreateImageController < ApplicationController
             @asfor = Asfor.find_by(question: question_text, answer: answer_text)
         else
             logger.debug("NOT EXISTS")
-
+            # TODO Serviceクラスを作って移行したほうがスマート
             # 画像ファイルを生成
             img = Magick::ImageList.new("#{Rails.root}/app/assets/image/frame.png")
             new_img = img.scale(600, 315)
@@ -51,20 +51,20 @@ class CreateImageController < ApplicationController
             new_img.write("#{Rails.root}/public/image/asfors/#{image_file}.png")
             new_img.destroy!
 
-            # DBレコード生成
+            # DBレコード生成だ！
             @asfor = Asfor.new
             @asfor.question = question_text
             @asfor.answer = answer_text
             @asfor.url_key = image_file
             @asfor.image = "/image/asfors/" + image_file + ".png"
             unless @asfor.save
-                # エラーコンテンツを返答
+                # なんで書き込めなかったん・・・
                 render partial: 'ajax_error_partial'
                 return
             end
         end
         
-        # シェア用のURLと生成した画像ファイル名を返答する
+        # シェア用のURLと生成した画像ファイル名を返答するよ
         results = { :url_key => @asfor.url_key, :image => @asfor.image }
         render partial: 'ajax_partial', locals: { :results => results }
     end
