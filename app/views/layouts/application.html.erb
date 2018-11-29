@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= page_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= display_meta_tags(default_meta_tags) %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>

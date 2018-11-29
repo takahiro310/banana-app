@@ -67,4 +67,4 @@ yarn-debug.log*
 
 # End of https://www.gitignore.io/api/rails
 
-/public/image/rensow/*
+/public/image/asfors/*

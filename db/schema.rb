@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_125530) do
+ActiveRecord::Schema.define(version: 2018_11_29_005944) do
 
   create_table "asfors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "question"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2018_11_26_125530) do
     t.datetime "updated_at", null: false
     t.string "url_key"
     t.string "image"
+    t.index ["question", "answer"], name: "unique_provider_uid", unique: true
+    t.index ["question"], name: "index_asfors_on_question"
+    t.index ["url_key"], name: "index_asfors_on_url_key"
   end
 
 end

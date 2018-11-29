@@ -5,6 +5,13 @@ class CreateImageController < ApplicationController
         question_text = params[:asfor][:question]
         answer_text = params[:asfor][:answer]
 
+        if question_text.blank? || question_text.size > 12 ||
+            answer_text.blank? || answer_text.size > 12
+            # 入力データ異常デス
+            render partial: 'ajax_error_partial'
+            return
+        end
+
         @asfor = nil
         if Asfor.exists?(question: question_text, answer: answer_text)
             logger.debug("EXISTS")
@@ -41,7 +48,7 @@ class CreateImageController < ApplicationController
             end
             
             image_file = SecureRandom.urlsafe_base64(8)
-            new_img.write("#{Rails.root}/public/image/rensow/#{image_file}.jpg")
+            new_img.write("#{Rails.root}/public/image/asfors/#{image_file}.png")
             new_img.destroy!
 
             # DBレコード生成
@@ -49,9 +56,12 @@ class CreateImageController < ApplicationController
             @asfor.question = question_text
             @asfor.answer = answer_text
             @asfor.url_key = image_file
-            @asfor.image = "/image/rensow/" + image_file + ".jpg"
-            # TODO: エラーハンドリング入れようぜ
-            @asfor.save
+            @asfor.image = "/image/asfors/" + image_file + ".png"
+            unless @asfor.save
+                # エラーコンテンツを返答
+                render partial: 'ajax_error_partial'
+                return
+            end
         end
         
         # シェア用のURLと生成した画像ファイル名を返答する

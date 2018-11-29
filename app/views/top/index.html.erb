@@ -1,6 +1,13 @@
 <% 
 unless @asfor.nil? 
-    @page_title = @asfor.question + "といえば" + @asfor.answer
+    set_meta_tags (
+        {
+            title: @asfor.question + "と言ったら...",
+            og: {
+                image: image_url(@asfor.image),
+            }
+        }
+    )
 end
 %>
 <div class="container">
@@ -13,18 +20,18 @@ end
         <% end %>
         <div class="col-xl">
             <% if @asfor.nil? %>
-            <p><%= text_field :asfor, :question, :class => "form-control-lg keyword", :maxlength => 12, :placeholder => "バナナ" %></p>
+            <p><%= text_field :asfor, :question, class: "form-control-lg keyword", maxlength: 12, required: true, :placeholder => "バナナ" %></p>
             <% else %>
-            <p><%= text_field :asfor, :question, :class => "form-control-lg alert-secondary keyword", :readonly => true %></p>
+            <p><%= text_field :asfor, :question, class: "form-control-lg alert-secondary keyword", readonly: true %></p>
             <% end %>
-            <p>といったら</p>
-            <p><%= text_field :asfor, :answer, :class => "form-control-lg keyword", :maxlength => 12, :placeholder => "黄色" %></p>
+            <p>と言ったら</p>
+            <p><%= text_field :asfor, :answer, class: "form-control-lg keyword", maxlength: 12, required: true, :placeholder => "黄色" %></p>
             <p><%= submit_tag 'けってい！', :id => "form_submit", :class => "btn btn-primary btn-lg" %></p>
         </div>
         <div id="created_image" class="col-xl">
             <% if @asfor.nil? %>
             <p>▼こんな画像が作られます▼</p>
-            <p><img src="/image/sample.jpg" alt="RENSOW サンプルイメージ" class="img-fluid" /></p>
+            <p><img src="/image/sample.png" alt="Asfors サンプルイメージ" class="img-fluid" /></p>
             <span class="btn btn-primary btn-lg disabled"><i class="fa-twitter fa">つぶやく</i></span>
             </div></p>
             <% end %>

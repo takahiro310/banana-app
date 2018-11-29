@@ -14,6 +14,10 @@ $ ->
 
   $('#form_submit')
     .on 'click', (event) ->
+      if $("#asfor_question").val() == ""
+        return
+      if $("#asfor_answer").val() == ""
+        return
       $(".loading").show()
       $("#cboxOverlay").css("opacity", "0.3").show()
       return
