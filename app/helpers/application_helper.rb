@@ -10,6 +10,7 @@ module ApplicationHelper
             separator: '|',
             og: {
                 site_name: 'Asfors -連想ゲーム-',
+                title: 'バナナといったら...',
                 description: '連想ゲームをお楽しみください',
                 type: 'website',
                 url: request.original_url,
@@ -18,6 +19,7 @@ module ApplicationHelper
             },
             twitter: {
                 card: 'summary_large_image',
+                title: 'バナナといったら...',
                 description: '連想ゲームをお楽しみください',
                 url: request.original_url,
                 image: image_url('/image/ogp.png'),
