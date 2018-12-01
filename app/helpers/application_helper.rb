@@ -17,8 +17,12 @@ module ApplicationHelper
                 locale: 'ja_JP',
             },
             twitter: {
-                card: 'summary',
+                card: 'summary_large_image',
+                description: '連想ゲームをお楽しみください',
+                url: request.original_url,
+                image: image_url('/image/ogp.png'),
                 site: '@takahiro310',
+                domain: 'asfors.net'
             }
         }
     end

@@ -4,8 +4,14 @@ unless @asfor.nil?
         {
             title: @asfor.question + "と言ったら...",
             og: {
+                title: @asfor.question + "と言ったら...",
+                image: image_url(@asfor.image),
+            },
+            twitter: {
+                title: @asfor.question + "と言ったら...",
                 image: image_url(@asfor.image),
             }
+
         }
     )
 end
