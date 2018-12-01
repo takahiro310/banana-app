@@ -49,9 +49,8 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['DB_DATABASE'] %>
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
-  host:     <%= ENV['DB_HOST'] %>
+  host:     <%= ENV.fetch('DB_HOST', 'localhost') %>
   port:     3306
-
+  database: <%= ENV.fetch('DB_DATABASE', 'banana-app') %>
+  username: <%= ENV.fetch('MYSQL_USER', 'root') %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD', 'root') %>

@@ -1,7 +1,7 @@
-<p><a href="/top/show/<%= results[:url_key] %>">
+<p><a href="/q/<%= results[:url_key] %>">
     <img src="<%= results[:image] %>" class="img-fluid"></a></p>
 <%
-url = URI.encode('https://twitter.com/share?url=https://asfors.net/top/show/')
+url = URI.encode('https://twitter.com/share?url=https://asfors.net/q/')
 url << results[:url_key]
 url << "&hashtags=連想ゲーム,Asfors"
 %>
