@@ -4,7 +4,7 @@ Twitter上で連想ゲームを楽しめるアプリケーションです。
 
 ![サンプル画面](https://raw.githubusercontent.com/takahiro310/images/master/asfors.png "Asfors")
 
-## 作る上で参考にしたサイト
+## 作る上で参考にした記事
 
 * [新規Railsプロジェクトの作成手順まとめ](https://qiita.com/yuitnnn/items/b45bba658d86eabdbb26)
 * [Ruby on Rails のテストフレームワーク RSpec 事始め](https://qiita.com/tatsurou313/items/c923338d2e3c07dfd9ee)
