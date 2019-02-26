@@ -2,6 +2,9 @@
 
 Twitter上で連想ゲームを楽しめるアプリケーションです。
 
+良かったら遊んでみてください。
+https://asfors.net/
+
 ![サンプル画面](https://raw.githubusercontent.com/takahiro310/images/master/asfors.png "Asfors")
 
 ## 作る上で参考にした記事
